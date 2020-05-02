@@ -1,9 +1,9 @@
-function generatProjectURL(github, title) {
+function generateProjectUrl(github, title) {
   var caseTitle = title.toLowerCase().split(" ").join("-");
   return `https://github.com/${github}/${caseTitle}`;
 }
 function renderBadge(license, github, title) {
-  if (liscense !== "none") {
+  if (license !== "none") {
     return `[![GitHub License](http://img.shields.io/badge/license-${license}-blue.svg)](${generateProjectUrl(
       github,
       title
@@ -20,7 +20,7 @@ function renderSection(license) {
 function generateMarkdown(data) {
   return `
     # ${data.title}
-    ${renderLicenseBadge(data.license, data.github, data.title)}
+    ${renderBadge(data.license, data.github, data.title)}
 
     ## Description
     ${data.description}
@@ -42,7 +42,7 @@ function generateMarkdown(data) {
 
     ${data.usage}
 
-    ${renderLicenseSection(data.license)}
+    ${renderSection(data.license)}
     ## Contributing
     ${data.contributing}
 
